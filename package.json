@@ -7,10 +7,11 @@
   "scripts": {
     "compile": "node scripts/compile.js",
     "static": "node scripts/static-check.js",
+    "validate:sources": "node scripts/validate-sources.js",
     "lint:solidity": "solhint --disc \"game/**/*.sol\"",
     "test": "npm run compile && mocha --timeout 30000 \"game/test/**/*.test.js\"",
     "audit": "npm audit --audit-level=high",
-    "check": "npm run static && npm run lint:solidity && npm test && npm run audit"
+    "check": "npm run static && npm run validate:sources && npm run lint:solidity && npm test && npm run audit"
   },
   "devDependencies": {
     "chai": "4.5.0",
