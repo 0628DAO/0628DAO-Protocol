@@ -2,7 +2,11 @@
 
 ## Confirmed lineage
 
-**CAW → 0628DAO/GilgameshCaw → 0628DAO → CAWELON · EMA · DAT**
+**CAW → 0628DAO GilgameshCaw → 0628DAO → CAWELON・EMA・DAT**
+
+This sentence records the business and development lineage. Repository paths
+below record the separate GitHub implementation and must not be substituted
+for the confirmed wording above.
 
 The GitHub fork used as the public CAW reference is:
 
@@ -36,3 +40,15 @@ implemented here.
 
 The existence of a public fork is not represented as a license grant,
 endorsement, partnership or audit.
+
+## Product-line boundary
+
+| Line | Repository state verified 2026-09-10 UTC | Historical draft |
+|---|---|---|
+| CAWELON | `0628DAO/CAWELON` not yet created | `0628DAO/CAWELON-Draft` preserved at `6ce46bd19e61942d55ab8a85f03e078601bd11b8` |
+| EMA | `0628DAO/EMA` not yet created | `0628DAO/EMA-Draft` preserved at `8ed8575e0a7c332155ef191770eb31907ab9f1a6` |
+| DAT | `0628DAO/DAT` not yet created | `0628DAO/DAT-Draft` preserved at `604ce243c77ff70338155327870d48b4e8b979db` |
+
+The draft repositories are independent repositories, not formal forks. No
+code, test, CI configuration, White Paper, Manifesto or security setting is
+written to them by this common protocol repository.
