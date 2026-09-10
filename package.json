@@ -1,0 +1,30 @@
+{
+  "name": "0628dao-protocol",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Development-only CAW game integration modules maintained by 0628DAO.",
+  "scripts": {
+    "compile": "node scripts/compile.js",
+    "static": "node scripts/static-check.js",
+    "lint:solidity": "solhint --disc \"game/**/*.sol\"",
+    "test": "npm run compile && mocha --timeout 30000 \"game/test/**/*.test.js\"",
+    "audit": "npm audit --audit-level=high",
+    "check": "npm run static && npm run lint:solidity && npm test && npm run audit"
+  },
+  "devDependencies": {
+    "chai": "4.5.0",
+    "ethers": "6.17.0",
+    "hardhat": "3.16.0",
+    "mocha": "12.0.0",
+    "solc": "0.8.30",
+    "solhint": "6.2.4"
+  },
+  "overrides": {
+    "adm-zip": "0.6.0",
+    "tmp": "0.2.7"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
