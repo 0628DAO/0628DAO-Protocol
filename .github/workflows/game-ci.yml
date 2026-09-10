@@ -1,0 +1,46 @@
+name: Game module CI
+
+on:
+  push:
+    paths:
+      - '.github/workflows/game-ci.yml'
+      - '.solhint.json'
+      - 'game/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'hardhat.config.js'
+  pull_request:
+    paths:
+      - '.github/workflows/game-ci.yml'
+      - '.solhint.json'
+      - 'game/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'hardhat.config.js'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: game-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Compile, lint, test and audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Run project checks
+        run: npm run check
