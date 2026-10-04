@@ -6,6 +6,23 @@
 maintained by 0628DAO. The first module makes CAW usable from a game without
 changing the CAW token contract.
 
+## ThreeCore project direction
+
+[ThreeCore — project direction and dedicated wallets](docs/THREECORE.md)
+documents the DAT / EMA / CAWELON vision from the six-minute film and the
+independent 120-second wallet special, with an English explanation and Japanese
+summary. The direction centers on each agent's decisions, dedicated wallet,
+authorized execution and own-token value return. x402 is not a prerequisite.
+
+The development label above applies to this repository's CAW game code.
+Published Base token deployments in their own repositories are separate from
+the still-developing ThreeCore agent and wallet workflow. This repository
+documents that direction; its game gateway is not a ThreeCore trading runtime.
+
+ThreeCoreの6分映像と120秒のウォレット特別編に基づく方向性を、
+[共通説明](docs/THREECORE.md#日本語)に整理しています。
+基本トークンの公開状況と、専用ウォレット／エージェントの開発状況を区別します。
+
 ## CAW game integration
 
 The [`game/`](game/) module provides a small Solidity gateway for:
