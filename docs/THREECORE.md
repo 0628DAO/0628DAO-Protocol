@@ -1,14 +1,25 @@
 # ThreeCore — project direction and dedicated wallets
 
-Updated: 2026-10-05 (JST)
+Updated: 2026-10-09 (JST)
 
 ## Purpose
 
 ThreeCore brings together DAT, EMA and CAWELON as three AI-agent-token identities.
-The development goal is for each agent to analyze opportunities, make its own
-decisions, execute through its dedicated wallet within authorized limits, account
-for results, and use its own realized earnings to support value return to its own
-token holders.
+The development goal is for each agent to use external dApps within predefined
+funding, permission and operating-policy limits, record realized profits and
+losses, and use eligible realized earnings to buy back and burn its own token
+under specified conditions. Fund movements and execution results are to be
+published with supporting records so that third parties can verify them.
+
+The three agents share a common system design, while funds, permissions and
+accounting remain independent for each token. Direct dividends to holders are
+not part of this design.
+
+This is the target system definition, not evidence of a completed or operating
+autonomous dApp system. Wallet count and structure, supported dApps, funding
+limits, profit-allocation ratios, decision and settlement rules, profit
+calculation, and failure/recovery behavior remain implementation design items.
+No wallet count or allocation percentage is fixed by this definition.
 
 The Base ERC-20 tokens and the agent/wallet software are separate components.
 Holding or transferring a token does not itself execute an AI model, place an
@@ -20,7 +31,7 @@ order, or trigger an automatic distribution.
 | --- | --- | --- |
 | DAT | Profitability and earning potential | Decentralized sports betting |
 | EMA | Practicality and sustainability | Decentralized prediction markets |
-| CAWELON | Higher returns to holders | Decentralized trading |
+| CAWELON | Higher-return opportunities | Decentralized trading |
 
 Each agent analyzes and acts; these are not three sequential departments for
 selection, validation and distribution. The illustrated markets explain the
@@ -32,7 +43,8 @@ permanently restrict each agent to one market.
 The separate 120-second wallet special announces that dedicated-wallet coding
 has begun. Its status is **development underway**, not a released wallet product.
 
-The intended architecture provides one dedicated wallet per agent:
+Each agent is intended to have its own wallet/account arrangement. The number
+and structure of those accounts remain design items. The target workflow is:
 
 1. Begin with funded capital; record any exchange of existing assets.
 2. Separate operating funds, the proposed position or stake, and reserves.
@@ -65,7 +77,7 @@ Buyback/burn and adding liquidity are distinct operations; any liquidity-return
 implementation needs its own allocation policy and transaction records.
 The films show successful examples, not realized project performance or a
 guarantee of returns. “High dividends” describes CAWELON's narrative ambition,
-not an implemented dividend entitlement.
+not a direct-dividend policy or an implemented dividend entitlement.
 
 ## Implementation boundaries
 
@@ -117,16 +129,25 @@ reviewed implementation, not to promotional narration.
 ## 日本語
 
 ThreeCoreは、DAT・EMA・CAWELONそれぞれが独自の判断基準を持ち、
-機会の分析・選択・実行・収益の確認・自トークンへの価値還元を目指す開発です。
+事前に定めた資金・権限・運用方針の範囲で外部dAppを利用し、確定した損益を記録し、
+所定の条件を満たした実現収益から自トークンの買戻しとBurnを実行するシステムを目指します。
+資金移動と実行結果を根拠となる記録とともに公開し、第三者が検証できる設計とします。
+
+3トークンは共通の仕組みを採用し、資金・権限・会計はそれぞれ独立させます。
+ホルダーへの直接配当は想定しません。
+これは開発するシステムの定義であり、自律運用の完成・本番稼働を示すものではありません。
 
 - DAT：収益性重視。
 - EMA：現実性・継続可能性重視。
-- CAWELON：ホルダーへの高い還元を重視。
+- CAWELON：高リターン志向。
 
 3者を「選ぶ担当・検証する担当・分配する担当」に分ける設計ではありません。
 各エージェントが分析し、判断し、実行する方向です。
 
-専用ウォレットは各エージェントに1つずつ。120秒の特別編では、
+各エージェントに独立したウォレット／口座構成を設ける方針です。
+ウォレット数・構成、利用dApp、金額上限、利益配分率、判断・決済条件、
+利益計算、失敗時の処理・復旧方法は未確定の設計項目です。
+120秒の特別編では、
 コーディング開始・開発中であることを示しています。
 用意した資金を交換し、運用資金・今回の投入額・予備資金を区分し、
 許可された範囲でバックエンド署名とdAppへの送信を行い、
