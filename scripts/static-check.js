@@ -5,8 +5,16 @@ import { fileURLToPath } from 'node:url'
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const requiredFiles = [
   'README.md',
+  'ARCHITECTURE.md',
+  'CHANGELOG.md',
+  'CONTRIBUTING.md',
   'LINEAGE.md',
   'SECURITY.md',
+  'THIRD_PARTY_NOTICES.md',
+  'UPSTREAM.md',
+  'docs/PROJECT_METADATA.json',
+  'docs/PROJECT_METADATA.schema.json',
+  'scripts/validate-metadata.js',
   '.github/workflows/game-ci.yml',
   '.solhint.json',
   'game/README.md',
@@ -40,7 +48,7 @@ for (const text of [rootReadme, gameReadme]) {
 if (!lineage.includes('e2074718bcea293726ddfcf8764e1499e7b9217c')) {
   throw new Error('Recorded CAW upstream SHA is missing')
 }
-if (!lineage.includes('CAW → 0628DAO/GilgameshCaw → 0628DAO → CAWELON · EMA · DAT')) {
+if (!lineage.includes('CAW → 0628DAO GilgameshCaw → 0628DAO → CAWELON・EMA・DAT')) {
   throw new Error('Confirmed lineage statement is missing')
 }
 if (/0x[a-fA-F0-9]{40}/.test(gateway)) {

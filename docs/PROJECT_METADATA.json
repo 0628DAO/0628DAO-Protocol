@@ -1,0 +1,84 @@
+{
+  "$schema": "./PROJECT_METADATA.schema.json",
+  "schemaVersion": "1.0.0",
+  "verifiedAt": "2026-09-10T17:02:18Z",
+  "status": {
+    "stage": "development",
+    "audited": false,
+    "testnetDeployed": false,
+    "mainnetDeployed": false
+  },
+  "projectSummary": {
+    "repositoryRole": "common 0628DAO protocol and integration modules",
+    "implementedModules": [
+      "CAW game integration gateway"
+    ],
+    "formalProductLines": [
+      "CAWELON",
+      "EMA",
+      "DAT"
+    ]
+  },
+  "lineage": {
+    "confirmedBusinessAndDevelopmentLineage": "CAW → 0628DAO GilgameshCaw → 0628DAO → CAWELON・EMA・DAT",
+    "formalCawFork": {
+      "repository": "https://github.com/0628DAO/GilgameshCaw",
+      "directParent": "https://github.com/GilgameshCaw/Caw",
+      "branch": "master",
+      "recordedCommit": "e2074718bcea293726ddfcf8764e1499e7b9217c"
+    }
+  },
+  "repositories": {
+    "commonMainline": {
+      "repository": "https://github.com/0628DAO/0628DAO-Protocol",
+      "defaultBranch": "main",
+      "headAtVerification": "d9d27cfbc5b5c247695f757cf3cbc650151d5096",
+      "role": "common-protocol"
+    },
+    "formalProductRepositories": [
+      {
+        "product": "CAWELON",
+        "repository": "https://github.com/0628DAO/CAWELON",
+        "state": "not-created"
+      },
+      {
+        "product": "EMA",
+        "repository": "https://github.com/0628DAO/EMA",
+        "state": "not-created"
+      },
+      {
+        "product": "DAT",
+        "repository": "https://github.com/0628DAO/DAT",
+        "state": "not-created"
+      }
+    ],
+    "preservedDrafts": [
+      {
+        "product": "CAWELON",
+        "repository": "https://github.com/0628DAO/CAWELON-Draft",
+        "defaultBranch": "main",
+        "recordedHead": "6ce46bd19e61942d55ab8a85f03e078601bd11b8",
+        "state": "preserved-unchanged"
+      },
+      {
+        "product": "EMA",
+        "repository": "https://github.com/0628DAO/EMA-Draft",
+        "defaultBranch": "main",
+        "recordedHead": "8ed8575e0a7c332155ef191770eb31907ab9f1a6",
+        "state": "preserved-unchanged"
+      },
+      {
+        "product": "DAT",
+        "repository": "https://github.com/0628DAO/DAT-Draft",
+        "defaultBranch": "main",
+        "recordedHead": "604ce243c77ff70338155327870d48b4e8b979db",
+        "state": "preserved-unchanged"
+      }
+    ]
+  },
+  "publicationBoundary": {
+    "publicRepositoryFactsOnly": true,
+    "privateDocumentContentPublished": false,
+    "accessBearingReferencesPublished": false
+  }
+}
