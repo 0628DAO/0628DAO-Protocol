@@ -70,6 +70,48 @@ The CMC overview is cited as a project description, not as an issuer-authored
 technical white paper or evidence of a completed integration. The separate
 0628DAO CAW game module remains development work.
 
+### CAW support: unchanged commitment, conditional future purchases and burns
+
+**Founder policy clarified on 2026-10-16.** Supporting CAW (A Hunters Dream)
+as a fan remains a continuing commitment. Financial support through CAW purchases
+and burns has a separate, explicit timing condition.
+
+- **Current priority:** develop DATCORE, EMA CORE and CAWELON CORE, establish
+  their own dApp-game activity and revenue foundations, and prioritize the
+  utility and value of the three tokens themselves. The planned value-return
+  mechanism remains each agent's own-token buyback and burn from eligible
+  realized net earnings.
+- **No immediate CAW buy-and-burn:** this roadmap does not initiate or authorize
+  purchasing or burning CAW now. Fan support does not mean that current ThreeCore
+  funds or earnings are already allocated to CAW.
+- **Future condition:** only after CAW has actually become an operational gaming
+  platform does the founder intend to begin supporting that ecosystem through
+  CAW purchases and burns alongside ThreeCore's own-token value-return activity.
+  A statement of intent, token listing or demonstration alone does not satisfy
+  this condition.
+- **Intended relationship:** the aim is to support the development and value of
+  both ecosystems. This is ThreeCore's intended support policy, not a claim that
+  CAW has agreed to purchase ThreeCore tokens or that either side's token price
+  is guaranteed to rise. Future funding, allocation and execution rules remain
+  to be specified; this documentation does not activate a trading operation.
+
+### 日本語：CAW支援の順序と開始条件
+
+**CAW（A Hunters Dream）をファンとして応援する姿勢は、今後も変わりません。**
+その姿勢と、実際に資金を使ってCAWを購入・Burnする時期は区別します。
+
+1. **今の最優先はThreeCore自身です。** DAT・EMA・CAWELONそれぞれのdAppゲーム、
+   収益基盤、利用価値を育て、自身のトークンの価値向上を最優先にします。
+   所定の条件を満たした実現純利益による、自トークンの買戻し・Burnを目指します。
+2. **今すぐCAWを購入・Burnする方針ではありません。**
+   CAWのファンであることを、現在のCAW購入・焼却や資金配分の開始とは扱いません。
+3. **CAW自体がゲームプラットフォームとして実際に稼働した時に初めて、**
+   CAWの購入・Burnによる支援を始める方針です。その段階でThreeCore側の活動と
+   組み合わせ、双方の発展と価値向上を目指します。
+4. この相互の価値向上は司令塔の構想です。CAW側がThreeCoreを買う約束をした、
+   公式提携が成立した、価格上昇が保証されるという意味ではありません。
+   将来の金額・配分率・実行条件は別途定めます。
+
 This gaming specialization is the current intended application focus. Earlier
 film examples of betting, prediction and trading are illustrations, not a fixed
 production game list. Selection must establish that agent play is permitted and
