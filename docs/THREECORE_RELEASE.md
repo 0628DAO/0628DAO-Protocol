@@ -52,6 +52,52 @@ dApp websites.
 | Operations | Pause behavior in simulation | Operator authentication, monitoring, alerting, incident/recovery rehearsal |
 | Release | No live runtime deployment | Independent review, evidence packet, explicit production decision |
 
+## Development priorities derived from the founder's strategy
+
+The strategy is to show a concrete future and build the capabilities that lead
+to it. Current effort and resources prioritize ThreeCore itself. Continuing fan
+support for CAW does not allocate present funds to CAW purchases or burns.
+
+| Stage | Deliverable | Evidence required to advance | Current state |
+| --- | --- | --- | --- |
+| 1. ThreeCore foundation | Independent DAT, EMA and CAWELON balances, loss-aware accounting and own-token value-return limits | Reproducible simulations and rejection tests, including no CAW purchases/burns | Offline simulation implemented; production ledger pending |
+| 2. First playable integration | A selected dApp game that permits agent play; observe, decide, authorize, play and settle interfaces | Published game rules/automation permission, network and contract references, result/fee verification, win/loss/failure cases | Game selection and adapter implementation pending |
+| 3. Agent dApps | DAT at datcore.fun, EMA at emacore.fun, CAWELON at cawelon.fun, each tied to its own backend | Visible mode (simulation/testnet/live), decisions, game results, costs and net earnings; no exposed signing secrets | Publication destinations confirmed; application integration pending |
+| 4. Own-token return and restricted operation | Verified net earnings connected to same-token buyback/burn under approved rules | Testnet/fork evidence, durable recovery, execution review and production decision | Simulated only |
+| 5. Conditional CAW support | CAW purchases/burns alongside ThreeCore's own development | CAW itself operating as a gaming platform, documented evidence and separately specified funding/allocation/execution rules | Inactive; no CAW purchase or burn path enabled |
+
+The future CAW stage does not block stages 1–4. Announcements, promotional
+websites, a token deployment or an AI model's claim of platform readiness cannot
+activate stage 5. The current runtime intentionally has no automatic activation
+switch for CAW support. Future support requires a separate reviewed implementation.
+CAW and CAWELON are different tokens and must never be conflated.
+
+### First game integration acceptance criteria
+
+- Document the selected game, supported network/assets and permitted automated
+  play before presenting it as supported.
+- Keep observations and strategy proposals separate from authorization and
+  execution. Record which agent made each decision and why.
+- Bind each result to the agent, game session, authorized action and verified
+  settlement evidence; handle duplicate, pending, failed and reversed outcomes.
+- Record entry costs, rewards, losses and all relevant operating costs; report
+  realized net earnings separately from token reward quantities.
+- Demonstrate the full lifecycle and loss/failure cases in a supported test
+  environment before connecting funds.
+- Keep the decision component replaceable for more capable AI and potential AGI;
+  replacements must retain limits and pass the same authorization/accounting tests.
+
+### 日本語：方針を開発に結びつける
+
+未来像を示すことを、現在の開発順序に反映します。まずThreeCore自身の基盤を整え、
+自動プレイが認められるゲームを選定し、判断・プレイ・結果・費用・純利益を記録する
+一連の接続を実装します。その結果を3つの公式dAppで確認できるようにし、
+実現純利益から自トークンへの還元へ進みます。
+
+CAWの購入・Burnは現在の実行対象に含めません。CAW自体のゲーム基盤が実際に
+稼働したことを確認した段階で、金額・配分・実行条件を別途定めた実装として扱います。
+CAW支援やAGIの到来を待つことは、ThreeCoreの開発を止める理由にはしません。
+
 ## Development sequence
 
 1. Preserve deployed token contracts and use this shared simulation to exercise

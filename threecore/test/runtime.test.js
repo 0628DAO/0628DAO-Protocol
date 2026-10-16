@@ -117,3 +117,20 @@ test('external snapshots/config cannot mutate internal state', () => {
   assert.equal(r.config().agents.DAT.reserve, '5000000')
   assert.equal(r.snapshot().DAT.cash, '0')
 })
+
+for (const token of TOKENS) test(`${token}: CAW support stays inactive even with claimed platform readiness`, () => {
+  const { r, open, settle, buy, run } = fixture(token)
+  open(); settle()
+  const beforePurchase = r.snapshot(), beforePurchaseJournal = r.journal()
+  assert.throws(() => buy({ targetToken: 'CAW', cawPlatformOperational: true }), /CAW purchases and burns are inactive/)
+  assert.deepEqual(r.snapshot(), beforePurchase)
+  assert.deepEqual(r.journal(), beforePurchaseJournal)
+  // Own-token activity remains permitted, including CAWELON (distinct from CAW).
+  buy()
+  const beforeBurn = r.snapshot(), beforeBurnJournal = r.journal()
+  assert.throws(() => run('burn', { buybackId: 'b', targetToken: 'CAW', cawPlatformOperational: true }), /CAW purchases and burns are inactive/)
+  assert.deepEqual(r.snapshot(), beforeBurn)
+  assert.deepEqual(r.journal(), beforeBurnJournal)
+  run('burn', { buybackId: 'b', targetToken: token })
+  assert.equal(r.snapshot()[token].burned, '5000000000000000000')
+})

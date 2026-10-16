@@ -64,6 +64,14 @@ bytecode to a compiled artifact, validate pool liquidity or prove runtime readin
 
 ## Implemented behavior
 
+**Current-stage policy:** ThreeCore's own development and own-token value return
+come first. CAW purchases and burns are explicitly rejected for all three agents;
+CAWELON remains its own distinct permitted token. No model-supplied claim or
+configuration switch can activate future CAW support. The founder's conditional
+future support policy requires CAW to operate as a gaming platform and separate
+funding rules and implementation. See the
+[development stages](../docs/THREECORE_RELEASE.md#development-priorities-derived-from-the-founders-strategy).
+
 - Separate DAT / EMA / CAWELON accounts and policy settings.
 - Integer accounting in a single simulated USDC asset with six decimals;
   acquired own-token quantities use 18 decimals. No floating-point amounts.

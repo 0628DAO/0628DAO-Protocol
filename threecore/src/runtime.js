@@ -14,6 +14,13 @@ function amount(value) {
 function id(value) { requireThat(typeof value === 'string' && /^[a-zA-Z0-9:_-]{1,100}$/.test(value), 'Invalid identifier'); return value }
 function positive(value) { const n = amount(value); requireThat(n > 0n, 'Amount must be positive'); return n }
 
+function ownTokenOnly(agent, target) {
+  // Current stage prioritizes ThreeCore. No CAW platform flag, model output or
+  // roadmap announcement can activate financial support through this runtime.
+  requireThat(target !== 'CAW', 'CAW purchases and burns are inactive in the current ThreeCore stage')
+  requireThat(target === agent, 'Only own-token buybacks and burns are permitted')
+}
+
 // Offline only. No RPC, signer, model, transaction broadcast or live adapter.
 // All monetary values are integer strings in ONE configured accounting asset.
 export class SimulationRuntime {
@@ -74,7 +81,7 @@ export class SimulationRuntime {
       Object.assign(pos, { status: 'settled', proceeds: c.proceeds, exitFee: c.fee, receiptId: c.receiptId })
     } else if (c.type === 'buyback') {
       requireThat(!a.paused, 'Agent paused')
-      requireThat(c.targetToken === c.token, 'Only own-token buybacks are permitted')
+      ownTokenOnly(c.token, c.targetToken)
       requireThat(!Object.values(a.positions).some(x => x.status === 'open'), 'Settle all positions before allocating profit')
       id(c.buybackId)
       requireThat(!a.buybacks[c.buybackId], 'Buyback already exists')
@@ -92,7 +99,7 @@ export class SimulationRuntime {
       requireThat(!a.paused, 'Agent paused')
       const b = a.buybacks[c.buybackId]
       requireThat(b?.status === 'acquired', 'No unburned buyback')
-      requireThat(c.targetToken === c.token, 'Only own-token burns are permitted')
+      ownTokenOnly(c.token, c.targetToken)
       a.burned = (BigInt(a.burned) + BigInt(b.received)).toString()
       b.status = 'burned'
     } else { throw new Error('Unknown command') }

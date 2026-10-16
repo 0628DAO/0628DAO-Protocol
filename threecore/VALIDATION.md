@@ -1,5 +1,15 @@
 # Validation record — 2026-10-16
 
+## Current-stage policy follow-up
+
+Following the founder's clarification, the runtime explicitly rejects CAW
+purchases and burns while preserving each agent's own-token lifecycle.
+Three additional tests cover DAT, EMA and CAWELON independently: attempted CAW
+purchase/burn is rejected without changing balances or the journal, including
+when the command claims that the CAW platform is operational. Each same-token
+buyback and burn still completes. `npm run test:threecore` now passes 19 tests.
+The original full-project validation below records the earlier 16-test baseline.
+
 ## Local execution
 
 - Node.js v24.19.0.
