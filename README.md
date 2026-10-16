@@ -3,8 +3,9 @@
 > **Development / Unaudited / Not deployed to mainnet**
 
 `0628DAO-Protocol` is the public development repository for integration modules
-maintained by 0628DAO. The first module makes CAW usable from a game without
-changing the CAW token contract.
+maintained by 0628DAO. The game module makes CAW usable from a game without changing the CAW token
+contract. The separate ThreeCore module adds shared offline accounting and
+policy simulation for DAT, EMA and CAWELON.
 
 ## ThreeCore project direction
 
@@ -14,14 +15,64 @@ independent 120-second wallet special, with an English explanation and Japanese
 summary. The direction centers on each agent's decisions, dedicated wallet,
 authorized execution and own-token value return. x402 is not a prerequisite.
 
-The development label above applies to this repository's CAW game code.
+The development label above applies to the game module and ThreeCore simulation.
 Published Base token deployments in their own repositories are separate from
-the still-developing ThreeCore agent and wallet workflow. This repository
-documents that direction; its game gateway is not a ThreeCore trading runtime.
+the still-developing ThreeCore agent and wallet workflow. The `threecore/` directory implements the offline simulation described below;
+its game gateway is not a ThreeCore trading runtime.
 
 ThreeCoreの6分映像と120秒のウォレット特別編に基づく方向性を、
 [共通説明](docs/THREECORE.md#日本語)に整理しています。
 基本トークンの公開状況と、専用ウォレット／エージェントの開発状況を区別します。
+
+## Official dApp publication targets
+
+Confirmed by the maintainer on 2026-10-16:
+
+| Agent | Official dApp website | Implementation relationship |
+| --- | --- | --- |
+| DAT | https://datcore.fun | DAT-facing application and operating records |
+| EMA | https://emacore.fun | EMA-facing application and operating records |
+| CAWELON | https://cawelon.fun | CAWELON-facing application and operating records |
+
+These are the intended public implementation and release destinations for the
+three dApps, not merely promotional links. Each application is intended to
+connect to its own agent's backend execution and accounting, using the shared
+ThreeCore design while keeping funds and permissions separate. Signing secrets
+must remain outside the public website and browser bundle.
+
+This publication-target decision does not assert that live wallet execution is
+already available on these sites. A website's availability and a deployed base
+token do not establish completion of the autonomous service. External protocols
+used by an agent are separate integrations, not replacements for these official
+dApp websites.
+
+**日本語：** DATはdatcore.fun、EMAはemacore.fun、CAWELONはcawelon.funで
+それぞれのdAppを公開実装する方針です。各サイトの画面と専用バックエンドを
+対応づけます。本番稼働の有無は、公開先の指定とは分けて検証・表示します。
+
+## ThreeCore implementation progress — 2026-10-16
+
+The [shared simulation](threecore/README.md) now includes separate accounting for
+DAT, EMA and CAWELON, position/exposure limits, reserve protection, pause,
+fee-aware realized P&L, loss carryforward, own-token buyback/burn simulation,
+duplicate rejection and hash-linked event replay. Automated tests cover the
+three complete lifecycles and failure paths. A separate read-only Base token
+preflight is included; it cannot sign or submit transactions.
+
+```sh
+npm run test:threecore
+npm run demo:threecore
+```
+
+**Status: offline simulation implemented; live wallets, AI decisions and dApp
+execution are not implemented by this module. Not mainnet-ready.** The sample
+limits and allocation ratio are testing fixtures, not approved production policy.
+See [release evidence and remaining work](docs/THREECORE_RELEASE.md).
+
+**日本語：** DAT・EMA・CAWELON共通の模擬実行基盤を実装しました。
+資金・会計の分離、投入上限、損失・手数料を反映した損益計算、自トークンの
+買戻し・Burn、二重処理防止をテストします。専用ウォレットと外部dAppの実接続、
+本番運用は未完了です。公開前の残作業は上記の開発記録に明記しています。
 
 ## CAW game integration
 

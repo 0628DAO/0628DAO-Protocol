@@ -1,6 +1,41 @@
 # ThreeCore — project direction and dedicated wallets
 
-Updated: 2026-10-09 (JST)
+Updated: 2026-10-16
+
+## Implementation update — 2026-10-16
+
+The shared offline implementation now lives in [`threecore/`](../threecore/README.md),
+based on commit `3993e0235a9aaef7326c2cc195dcd20e16faf9e9`. It exercises isolated
+accounting, policy limits and synthetic own-token buyback/burn lifecycles for all
+three agents. Live signing, external applications and AI decision services remain
+unimplemented here. See the [release evidence matrix](THREECORE_RELEASE.md).
+The design items below remain open for production; example settings are fixtures.
+
+## Official dApp publication targets
+
+Confirmed by the maintainer on 2026-10-16:
+
+| Agent | Official dApp website | Implementation relationship |
+| --- | --- | --- |
+| DAT | https://datcore.fun | DAT-facing application and operating records |
+| EMA | https://emacore.fun | EMA-facing application and operating records |
+| CAWELON | https://cawelon.fun | CAWELON-facing application and operating records |
+
+These are the intended public implementation and release destinations for the
+three dApps, not merely promotional links. Each application is intended to
+connect to its own agent's backend execution and accounting, using the shared
+ThreeCore design while keeping funds and permissions separate. Signing secrets
+must remain outside the public website and browser bundle.
+
+This publication-target decision does not assert that live wallet execution is
+already available on these sites. A website's availability and a deployed base
+token do not establish completion of the autonomous service. External protocols
+used by an agent are separate integrations, not replacements for these official
+dApp websites.
+
+**日本語：** DATはdatcore.fun、EMAはemacore.fun、CAWELONはcawelon.funで
+それぞれのdAppを公開実装する方針です。各サイトの画面と専用バックエンドを
+対応づけます。本番稼働の有無は、公開先の指定とは分けて検証・表示します。
 
 ## Purpose
 
@@ -96,9 +131,10 @@ Repository names ending in `-Draft` do not establish deployment status. The
 CAWELON and EMA repositories also retain historical root-level draft files;
 their current token implementations are under `contracts/`.
 
-This documentation does not designate the CAW game gateway or the base-token
-contracts as the home for a trading bot. Future executable work needs a confirmed
-source repository, base commit and scope.
+The shared offline implementation is designated to `threecore/` in this
+repository. Neither the CAW game gateway nor the base-token contracts are a
+trading bot. Live adapters and execution services require the separate release
+work documented in `THREECORE_RELEASE.md`.
 
 ## x402
 
