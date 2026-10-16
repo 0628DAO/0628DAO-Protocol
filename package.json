@@ -7,13 +7,18 @@
   "scripts": {
     "compile": "node scripts/compile.js",
     "static": "node scripts/static-check.js",
-    "lint:solidity": "solhint --disc \"game/**/*.sol\"",
+    "lint:solidity": "solhint --disc \"game/**/*.sol\" \"threecore/testnet/contracts/*.sol\"",
     "test": "npm run compile && mocha --timeout 30000 \"game/test/**/*.test.js\"",
     "audit": "npm audit --audit-level=high",
-    "check": "npm run static && npm run lint:solidity && npm test && npm run test:threecore && npm run audit",
+    "check": "npm run static && npm run lint:solidity && npm test && npm run test:threecore && npm run test:testnet && npm run test:testnet-ui && npm run audit",
     "test:threecore": "node --test threecore/test/*.test.js",
     "demo:threecore": "node threecore/examples/simulate.js",
-    "preflight:threecore": "node threecore/scripts/preflight.js"
+    "preflight:threecore": "node threecore/scripts/preflight.js",
+    "test:testnet": "npm run compile && mocha --timeout 30000 \"threecore/testnet/test/*.test.js\"",
+    "build:testnet": "npm run compile && node threecore/testnet/scripts/build-web.js",
+    "deploy:testnet": "npm run compile && node threecore/testnet/scripts/deploy.js",
+    "check:testnet": "npm run compile && node threecore/testnet/scripts/deploy.js --check",
+    "test:testnet-ui": "npm run build:testnet && node threecore/testnet/test/ui-controller.mjs"
   },
   "devDependencies": {
     "chai": "4.5.0",

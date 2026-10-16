@@ -10,6 +10,11 @@ the simulation signs or submits a blockchain transaction.
 Validation commands, local results and the recorded read-only Base block are
 published in [VALIDATION.md](VALIDATION.md).
 
+A separate [testnet training implementation](testnet/README.md) now supplies
+contracts, wallet-connected site bundles and deployment scripts. It has been
+validated locally; public testnet deployment is pending. This does not change
+the offline-only boundary of `SimulationRuntime` below.
+
 ## Official dApp publication targets
 
 Confirmed by the maintainer on 2026-10-16:

@@ -7,8 +7,10 @@ Updated: 2026-10-16
 The shared offline implementation now lives in [`threecore/`](../threecore/README.md),
 based on commit `3993e0235a9aaef7326c2cc195dcd20e16faf9e9`. It exercises isolated
 accounting, policy limits and synthetic own-token buyback/burn lifecycles for all
-three agents. Live signing, external applications and AI decision services remain
-unimplemented here. See the [release evidence matrix](THREECORE_RELEASE.md).
+three agents. A separate [testnet training dApp module](../threecore/testnet/README.md) now
+implements local-EVM gameplay and wallet transaction preparation. Public testnet
+deployment, external revenue-game integration and AI decision services remain
+incomplete. See the [release evidence matrix](THREECORE_RELEASE.md).
 The design items below remain open for production; example settings are fixtures.
 
 ## Official dApp publication targets

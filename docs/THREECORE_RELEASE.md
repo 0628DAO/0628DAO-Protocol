@@ -41,16 +41,20 @@ dApp websites.
 | --- | --- | --- |
 | Existing base tokens | Source and deployment references in three token repositories; read-only preflight command | Deployment-specific bytecode and ownership review at a recorded block |
 | Independent accounting and limits | Executable simulation and automated failure-path tests | Durable ledger, access control, reconciliation and concurrency tests |
-| Public dApps | Publication targets: datcore.fun / emacore.fun / cawelon.fun | Per-agent UI, backend API, deployment checks and accurate live/simulation labels |
+| Public dApps | Three training frontend bundles built; controller-to-local-EVM tests passed | Browser QA, public testnet deployment, hosting and external-game/backend integration |
 | Decision service | Defined objectives for each agent | Data inputs, selected strategy, decision records and deterministic risk validation |
-| Wallet/signing | Target workflow documented | Custody choice, separate authorities, approved spending policy, key rotation and recovery drills |
-| External application | Mock adapter identifier only | Named dApp/network/assets, ABI and address validation, receipts and failure handling |
+| Wallet/signing | Dedicated training-agent contracts, wallet-connected UI and testnet CLI implemented | Public testnet signer/test ETH, followed by production custody/recovery and operational controls |
+| External application | Internal arithmetic training game implemented and tested on local EVM | Selected external game, automation permission, network/asset validation and verified settlement |
 | Realized profit | Integer simulation including losses and fees | Approved valuation and fee policy, externally verified settlement records |
 | Buyback/burn | Own-token simulated lifecycle | DEX route, slippage and price controls, gas budget, receipts and supply reconciliation |
 | Restart/replay | Journal replay and duplicate rejection | Atomic persistence, worker locks, crash recovery, nonce and unknown-transaction recovery |
-| Chain behavior | Optional read-only metadata check | Fork tests, public testnet trial, confirmations and reorg handling |
+| Chain behavior | Local EVM lifecycles passed; Base Sepolia read-only connectivity confirmed | Public testnet deployment/trial, fork tests, confirmations and reorg handling |
 | Operations | Pause behavior in simulation | Operator authentication, monitoring, alerting, incident/recovery rehearsal |
 | Release | No live runtime deployment | Independent review, evidence packet, explicit production decision |
+
+The [training dApp implementation](../threecore/testnet/README.md) and its
+[validation record](../threecore/testnet/VALIDATION.md) provide the latest local
+EVM progress. No public testnet deployment is claimed.
 
 ## Development priorities derived from the founder's strategy
 
@@ -61,8 +65,8 @@ support for CAW does not allocate present funds to CAW purchases or burns.
 | Stage | Deliverable | Evidence required to advance | Current state |
 | --- | --- | --- | --- |
 | 1. ThreeCore foundation | Independent DAT, EMA and CAWELON balances, loss-aware accounting and own-token value-return limits | Reproducible simulations and rejection tests, including no CAW purchases/burns | Offline simulation implemented; production ledger pending |
-| 2. First playable integration | A selected dApp game that permits agent play; observe, decide, authorize, play and settle interfaces | Published game rules/automation permission, network and contract references, result/fee verification, win/loss/failure cases | Game selection and adapter implementation pending |
-| 3. Agent dApps | DAT at datcore.fun, EMA at emacore.fun, CAWELON at cawelon.fun, each tied to its own backend | Visible mode (simulation/testnet/live), decisions, game results, costs and net earnings; no exposed signing secrets | Publication destinations confirmed; application integration pending |
+| 2. First playable integration | A selected dApp game that permits agent play; observe, decide, authorize, play and settle interfaces | Published game rules/automation permission, network and contract references, result/fee verification, win/loss/failure cases | Internal training game implemented/tested locally; external game selection/adapter pending |
+| 3. Agent dApps | DAT at datcore.fun, EMA at emacore.fun, CAWELON at cawelon.fun, each tied to its own backend | Visible mode (simulation/testnet/live), decisions, game results, costs and net earnings; no exposed signing secrets | Per-agent training UI built and controller-tested; hosting/public testnet pending |
 | 4. Own-token return and restricted operation | Verified net earnings connected to same-token buyback/burn under approved rules | Testnet/fork evidence, durable recovery, execution review and production decision | Simulated only |
 | 5. Conditional CAW support | CAW purchases/burns alongside ThreeCore's own development | CAW itself operating as a gaming platform, documented evidence and separately specified funding/allocation/execution rules | Inactive; no CAW purchase or burn path enabled |
 

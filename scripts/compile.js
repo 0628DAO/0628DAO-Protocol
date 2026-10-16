@@ -6,6 +6,7 @@ import solc from 'solc'
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const sourceRoots = [
   path.join(root, 'game', 'contracts'),
+  path.join(root, 'threecore', 'testnet', 'contracts'),
   path.join(root, 'game', 'interfaces'),
   path.join(root, 'game', 'test', 'mocks'),
 ]

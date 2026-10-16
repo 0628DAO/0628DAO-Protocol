@@ -129,6 +129,25 @@ CMCのCAW紹介文にはゲーム内購入・報酬・取引への活用可能�
 司令塔個人の構想だけに基づく説明ではありません。
 出典はCMCのプロジェクト紹介文であり、正式な技術白書や実装完了の証明とは区別します。
 
+## Testnet dApp implementation — 2026-10-16
+
+[Three separate training dApps](threecore/testnet/README.md) now include EVM
+contracts, per-agent test credits, gameplay and settlement, independent P&L,
+profit-only training-credit burns, wallet-connected frontend bundles and Base
+Sepolia deployment/exercise scripts. Contract tests and UI-controller tests run
+against a local EVM; the controller tests use a stub DOM, not a browser renderer.
+
+**Public testnet deployment: pending.** Base Sepolia read-only connectivity was
+confirmed, but no dedicated testnet signer is configured in the development
+environment and no public-chain transaction or domain update is recorded.
+The training game uses publicly solvable arithmetic and freely minted credits;
+external revenue games, AI models and actual own-token DEX buyback are separate
+remaining work. See [validation and limitations](threecore/testnet/VALIDATION.md).
+
+**日本語：** DAT・EMA・CAWELONそれぞれのテスト用ゲーム契約とdApp画面を実装し、
+ローカルEVMでプレイから結果・損益記録まで検証しました。公開テストネットへの配備は
+専用の署名手段とテスト用ETHの準備待ちで、まだ実施していません。
+
 ## ThreeCore project direction
 
 [ThreeCore — project direction and dedicated wallets](docs/THREECORE.md)
