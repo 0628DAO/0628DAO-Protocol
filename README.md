@@ -30,14 +30,15 @@ design premise, not a claim that AGI is available, that the current agents will
 automatically become AGI, or that a development date or profitable outcome is
 guaranteed. Initial development does not depend on AGI becoming available.
 
-**Relationship to CAW:** the founder sees potential affinity between ThreeCore's
-game-playing agents and a future decentralized gaming ecosystem built around
-CAW. The published [CAW manifesto](https://github.com/cawdevelopment/manifesto)
-primarily specifies decentralized social communication, identity and value
-transfer. The gaming connection described here is the founder's strategic
-outlook, not a verified CAW-wide gaming roadmap, partnership or implemented
-integration. The separate 0628DAO CAW game module is development work, not proof
-of a live upstream CAW gaming platform.
+**Relationship to CAW:** [CoinMarketCap's CAW overview](https://coinmarketcap.com/currencies/caw/)
+describes potential gaming applications, including purchases, rewards and
+in-game transactions (accessed 2026-10-16). This published description supports
+the founder's view that ThreeCore's game-playing agents have strategic affinity
+with CAW's potential gaming ecosystem. This connection is therefore grounded in
+a published use-case description, not solely the founder's personal projection.
+The CMC overview is cited as a project description, not as an issuer-authored
+technical white paper or evidence of a completed integration. The separate
+0628DAO CAW game module remains development work.
 
 This gaming specialization is the current intended application focus. Earlier
 film examples of betting, prediction and trading are illustrations, not a fixed
@@ -61,10 +62,11 @@ code does not yet implement a live game-playing agent.
 資金上限・検証可能な記録を維持します。AGIの実現時期や自動的な移行、
 利益の保証を意味せず、現段階の開発はAGIの登場を待たずに進めます。
 
-CAWを基盤とする分散型ゲームへの将来的な発展と、ThreeCoreとの親和性を
-司令塔は見込んでいます。ただし、確認できたCAW原典は分散型SNSが中心です。
-ここでは司令塔の将来展望として述べ、CAW全体の確定済みロードマップ、
-公式提携、接続実装済みとは表現しません。
+CMCのCAW紹介文にはゲーム内購入・報酬・取引への活用可能性が記載されています。
+この公開説明を根拠に、司令塔はCAWのゲーム分野への発展とThreeCoreの
+ゲームプレイ型エージェントとの親和性を見込んでいます。
+司令塔個人の構想だけに基づく説明ではありません。
+出典はCMCのプロジェクト紹介文であり、正式な技術白書や実装完了の証明とは区別します。
 
 ## ThreeCore project direction
 
