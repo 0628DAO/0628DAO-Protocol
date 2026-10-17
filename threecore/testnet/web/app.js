@@ -6,6 +6,9 @@ const hosts = { DAT: 'datcore.fun', EMA: 'emacore.fun', CAWELON: 'cawelon.fun' }
 let provider, signer, account, factory, agent, game, credit, busy = false
 const records = []
 $('agent').value = config.token
+$('deploymentStatus').textContent = config.status === 'VERIFIED_TESTNET_TRAINING' && isAddress(config.factory || '')
+  ? `公開テストネット検証済み · Base Sepolia ／ Factory ${config.factory}`
+  : '未配備プレビュー · 公開テストネットでの動作確認は未完了です。'
 function key() { return `threecore-training:84532:${account?.toLowerCase()}` }
 function appearance() {
   const token = $('agent').value
