@@ -7,4 +7,6 @@ coverage/
 !.env.example
 
 threecore/testnet/dist/
+threecore/testnet/release/
+threecore/testnet/.release-staging-*/
 threecore/testnet/deployments/*.tmp
