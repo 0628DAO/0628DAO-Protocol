@@ -43,13 +43,21 @@ async function receipt(tx, label) {
   return result
 }
 async function attachFactory(address) {
+  // A failed replacement must never leave the previous contract actionable.
+  factory = agent = game = credit = undefined
+  $('cash').textContent = $('pnl').textContent = $('burned').textContent = '—'
+  $('contracts').textContent = '契約は未接続です。アドレスを確認してください。'
+  $('challenge').textContent = '契約を準備すると課題を表示します。'
+  controls()
   if (!isAddress(address)) throw new Error('Factoryの契約アドレスを確認してください。')
   const code = await provider.getCode(address)
   if (code === '0x' || keccak256(code) !== keccak256(artifacts.TrainingFactory.deployedBytecode)) throw new Error('Factoryのコードがこのビルドと一致しません。')
   const candidate = new Contract(address, artifacts.TrainingFactory.abi, signer)
   await candidate.agents(account, id($('agent').value))
-  factory = candidate; $('factory').value = address; localStorage.setItem(key(), address)
-  await loadAgent()
+  factory = candidate
+  try { await loadAgent() }
+  catch (error) { factory = agent = game = credit = undefined; throw error }
+  $('factory').value = address; localStorage.setItem(key(), address)
 }
 async function loadAgent() {
   agent = game = credit = undefined
