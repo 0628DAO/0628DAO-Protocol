@@ -73,6 +73,19 @@ try {
  const verified=await verifyRelease(report,artifacts,artifactHash,readProvider)
  assert.equal(Object.keys(verified.agents).length,3)
  assert.equal(verified.receipts.length,6)
+ const relayProvider=new Proxy(readProvider,{get(target,name){
+  if(name==='getTransaction')return()=>{throw new Error('Outer sender is not contract authorization evidence')}
+  const value=Reflect.get(target,name,target);return typeof value==='function'?value.bind(target):value
+ }})
+ assert.equal((await verifyRelease(report,artifacts,artifactHash,relayProvider)).receipts.length,6)
+ for(const remove of ['agent','game','credit']){
+  const hidden=new Set(Object.values(report.agents).map(a=>a[remove].toLowerCase()))
+  const incompleteProvider=new Proxy(readProvider,{get(target,name){
+   if(name==='getTransactionReceipt')return async hash=>{const receipt=await target.getTransactionReceipt(hash);return {...receipt,logs:receipt.logs.filter(log=>!hidden.has(log.address.toLowerCase()))}}
+   const value=Reflect.get(target,name,target);return typeof value==='function'?value.bind(target):value
+  }})
+  await assert.rejects(()=>verifyRelease(report,artifacts,artifactHash,incompleteProvider))
+ }
  const invalidReports=[
   {...report,chainId:8453},
   {...report,status:'NOT_DEPLOYED'},
