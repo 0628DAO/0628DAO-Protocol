@@ -2,6 +2,14 @@
 
 ## Follow-up — 2026-10-17
 
+- Public Base Sepolia factory and three independent agent/game/credit sets were
+  deployed using the browser wallet. Each agent completed one positive play and
+  one 0.5-credit profit burn. Public evidence is recorded under deployments/.
+- MetaMask relayed transactions use an outer sender/recipient different from the
+  owner/agent. Release verification now authenticates the factory-bound agent's
+  used-command event and matching game/credit outcome, rather than assuming a
+  direct outer call. Local tests reject missing agent, game and credit events.
+
 - Added a read-only website release gate. A real local EVM fixture verifies all
   three agent bindings and six positive-play/profit-burn receipts; eight invalid
   deployment reports are rejected. Successful receipts must contain the matching
