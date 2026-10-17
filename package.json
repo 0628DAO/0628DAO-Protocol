@@ -16,6 +16,7 @@
     "preflight:threecore": "node threecore/scripts/preflight.js",
     "test:testnet": "npm run compile && mocha --timeout 30000 \"threecore/testnet/test/*.test.js\"",
     "build:testnet": "npm run compile && node threecore/testnet/scripts/build-web.js",
+    "release:testnet": "npm run compile && node threecore/testnet/scripts/release-web.js",
     "deploy:testnet": "npm run compile && node threecore/testnet/scripts/deploy.js",
     "check:testnet": "npm run compile && node threecore/testnet/scripts/deploy.js --check",
     "test:testnet-ui": "npm run build:testnet && node threecore/testnet/test/ui-controller.mjs"
