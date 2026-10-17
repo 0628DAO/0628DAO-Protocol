@@ -2,6 +2,16 @@
 
 ## Follow-up — 2026-10-17
 
+- Added a read-only website release gate. A real local EVM fixture verifies all
+  three agent bindings and six positive-play/profit-burn receipts; eight invalid
+  deployment reports are rejected. Successful receipts must contain the matching
+  agent outcome event, and play must have positive credit P&L. The gate rejects
+  missing public deployment records before creating a release directory.
+- Public bundles are staged separately and only promoted after verification;
+  undeployed preview bundles display an explicit status label. Public chain
+  deployment and hosting publication have not occurred. In-app wallet connection
+  was attempted with authorization; the page reported no browser test wallet.
+
 - Failed factory replacement now clears the previous factory, agent, game and
   credit bindings, resets displayed balances/challenge, and disables contract
   actions. Invalid addresses and addresses without matching bytecode are tested
