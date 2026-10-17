@@ -65,7 +65,10 @@ After deployment and `--exercise`, commit the reviewed source and run
 chain and connected RPC to be Base Sepolia, matching compiled factory bytecode
 and artifact fingerprint, three distinct factory-registered agents with correct
 owner/identity/game/credit bindings, and successful canonical play/burn receipts
-from the recorded owner to each agent. Incomplete or pending reports are rejected.
+Each outcome must come from its verified agent, match a used command and match
+the bound game's positive result or the bound credit's burn transfer. Wallet
+relayers are supported without trusting the outer transaction sender.
+Incomplete or pending reports are rejected.
 
 Only after verification does it stage and atomically publish local bundles under
 `threecore/testnet/release/{dat,ema,cawelon}/`, including the verified factory in
