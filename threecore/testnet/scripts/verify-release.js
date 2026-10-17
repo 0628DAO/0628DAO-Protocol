@@ -35,18 +35,29 @@ export async function verifyRelease(report, artifacts, artifactHash, provider) {
       const entry = report.transactions?.find(row => row.action === action && row.token === symbol)
       if (!entry || !/^0x[0-9a-f]{64}$/i.test(entry.hash) || seenHashes.has(entry.hash)) throw new Error(`${symbol}: missing or duplicate ${action} receipt`)
       seenHashes.add(entry.hash)
-      const tx = await provider.getTransaction(entry.hash)
       const receipt = await provider.getTransactionReceipt(entry.hash)
-      if (!tx || !receipt || receipt.status !== 1 || address(tx.from) !== owner || address(tx.to) !== verified[symbol].agent) throw new Error(`${symbol}: unsuccessful or unrelated transaction`)
-      const parsed = new Interface(artifacts.TrainingAgent.abi).parseTransaction({ data: tx.data, value: tx.value })
-      if (parsed?.name !== method) throw new Error(`${symbol}: transaction action mismatch`)
+      if (!receipt || receipt.status !== 1) throw new Error(`${symbol}: unsuccessful transaction`)
+      // Smart-wallet relayers may be the outer sender. Authenticate the outcome
+      // at the factory-verified agent, whose functions enforce owner/operator.
       const eventName = method === 'execute' ? 'Executed' : 'ProfitBurned'
       const iface = new Interface(artifacts.TrainingAgent.abi)
       const events = receipt.logs.filter(log => address(log.address) === verified[symbol].agent).map(log => {
         try { return iface.parseLog(log) } catch { return null }
       })
-      const event = events.find(log => log?.name === eventName && log.args.commandId === parsed.args[0])
+      const matching = events.filter(log => log?.name === eventName)
+      const event = matching.length === 1 ? matching[0] : null
       if (!event || (method === 'execute' ? event.args.pnl <= 0n : event.args.amount <= 0n)) throw new Error(`${symbol}: successful training outcome missing`)
+      const agent = new Contract(verified[symbol].agent, artifacts.TrainingAgent.abi, provider)
+      if (!await agent.usedCommands(event.args.commandId)) throw new Error(`${symbol}: command was not executed`)
+      const target = method === 'execute' ? verified[symbol].game : verified[symbol].credit
+      const outcomeInterface = new Interface(method === 'execute' ? artifacts.TrainingGame.abi : artifacts.TrainingCredit.abi)
+      const outcomes = receipt.logs.filter(log => address(log.address) === target).map(log => {
+        try { return outcomeInterface.parseLog(log) } catch { return null }
+      })
+      const confirmed = method === 'execute'
+        ? outcomes.some(log => log?.name === 'Played' && address(log.args.player) === verified[symbol].agent && log.args.round === event.args.round && log.args.stake === event.args.stake && log.args.payout === event.args.payout && log.args.correct && event.args.pnl === event.args.payout - event.args.stake)
+        : outcomes.some(log => log?.name === 'Transfer' && address(log.args.from) === verified[symbol].agent && log.args.to === '0x0000000000000000000000000000000000000000' && log.args.amount === event.args.amount)
+      if (!confirmed) throw new Error(`${symbol}: game or credit outcome mismatch`)
       const block = await provider.getBlock(receipt.blockNumber)
       if (!block || block.hash !== receipt.blockHash) throw new Error(`${symbol}: receipt is not canonical`)
       receipts.push({ symbol, action, hash: receipt.hash, blockNumber: receipt.blockNumber })
