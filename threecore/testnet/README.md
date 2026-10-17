@@ -58,6 +58,24 @@ built bundle is labeled `NOT_DEPLOYED`, with no invented deployment addresses.
 
 ## Public Base Sepolia deployment
 
+### Verified website release
+
+After deployment and `--exercise`, commit the reviewed source and run
+`npm run release:testnet`. This read-only release gate requires the recorded
+chain and connected RPC to be Base Sepolia, matching compiled factory bytecode
+and artifact fingerprint, three distinct factory-registered agents with correct
+owner/identity/game/credit bindings, and successful canonical play/burn receipts
+from the recorded owner to each agent. Incomplete or pending reports are rejected.
+
+Only after verification does it stage and atomically publish local bundles under
+`threecore/testnet/release/{dat,ema,cawelon}/`, including the verified factory in
+each config and a public `verification.json`. An existing release is preserved;
+archive it before preparing another. The default `build:testnet` remains an
+explicitly labeled undeployed preview. Neither command uploads to a website.
+Upload only the verified release to the intended domain's testnet path after
+confirming the hosting destination, then check HTTPS and wallet behavior there.
+This gate is development evidence, not a security audit or production approval.
+
 Supported public chain: **84532**. Constructors also allow local chain 31337 for
 tests and reject other chains, including Base Mainnet. Browser transactions are
 restricted to chain 84532. `trainingLocal` is an in-memory test chain with the
