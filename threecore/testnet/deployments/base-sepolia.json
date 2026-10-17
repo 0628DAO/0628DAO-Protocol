@@ -1,0 +1,101 @@
+{
+  "status": "TESTNET_TRAINING_EXERCISED",
+  "chainId": 84532,
+  "sourceCommit": "6ecc08cdef82f39137f972b9f1970edc2bb39e91",
+  "artifactHash": "285a8c2c2bdf2bbdfb8f86a874dcc627cb145667c268c1d853d3c170034350bb",
+  "owner": "0xfbE494B465efe6d0DAFf80dC715302D0Fa0Ac5d9",
+  "factory": "0x9A131ae8d1Bb0d37a22203B6db75d8335B3Ec2e4",
+  "agents": {
+    "DAT": {
+      "agent": "0xd200D3fEf988e3f708B6b828D1533E0471D0e6Ac",
+      "game": "0x75395367956b8CEfeB0b630eDB168b72390c5457",
+      "credit": "0x1c1796DC09ed90371314C82177264Bdc41eaaa17",
+      "creationTransaction": "0x923bae657ed3ea45302bf31184a304736a5a3af9ee33c0d0e5db0204db0dae27",
+      "playTransaction": "0xb08a6832ce721b9f5209b317273a2118126c68647f55b2859e50d900b6e5964d",
+      "observedState": {
+        "cash": "100.5",
+        "pnl": "1.0",
+        "burned": "0.5"
+      },
+      "burnTransaction": "0x4cd8244af8bfab5ae40184cf5353fece9c6d78eb5402a9c4d285e03211cbcb8d"
+    },
+    "EMA": {
+      "agent": "0x87746c7D55F7935111B82d354e9787DDb6AEf53A",
+      "game": "0x3E9150Ab5e20e8525F6aD935fC090fc33bF9F37f",
+      "credit": "0x1b7535586908a38Aa24A657BE643D4DF6f9c0419",
+      "creationTransaction": "0xd2e0d84121d5b869af4ab6b23dcabf4fa8226194357e3c54db1e83bc05724779",
+      "playTransaction": "0xb22ecb5fc0fee55cd4fd91f5a844e8ea6897ff57c5783ab2a4bcc52128d2022c",
+      "observedState": {
+        "cash": "100.5",
+        "pnl": "1.0",
+        "burned": "0.5"
+      },
+      "burnTransaction": "0x4f4706e2dd8474bc7c60bb2d04795a97e6db9f706236cf03f761351efe1c1048"
+    },
+    "CAWELON": {
+      "agent": "0x9cA76292128cef89f4a69607073FE52B9E6736eA",
+      "game": "0x624D202623af2f61ce34d2a0D594e8d236ee8fBa",
+      "credit": "0xe55aA5ecABF0b4aCdBDB21A7636BD33c15Cf6A92",
+      "creationTransaction": "0x9d99e7d1a5af51d66b37cb0e768ec8a345a958a526e9c107aaef9c5d3bc0d3ba",
+      "playTransaction": "0xe29a52fcf368d4668a0ee6ff3fa52e24568374129226366ae417765be50c079b",
+      "observedState": {
+        "cash": "100.5",
+        "pnl": "1.0",
+        "burned": "0.5"
+      },
+      "burnTransaction": "0xdac6a7bbee10fc15a9b11fb9700cd080cfef820bc8da80a8ad2932a1ff6d447c"
+    }
+  },
+  "transactions": [
+    {
+      "action": "factory-deploy",
+      "token": null,
+      "hash": "0xc21373880796fb302cbc31a1116e60d1f02512eaa97ec18d1955c8644bf09fd3"
+    },
+    {
+      "action": "agent-deploy",
+      "token": "DAT",
+      "hash": "0x923bae657ed3ea45302bf31184a304736a5a3af9ee33c0d0e5db0204db0dae27"
+    },
+    {
+      "action": "training-play",
+      "token": "DAT",
+      "hash": "0xb08a6832ce721b9f5209b317273a2118126c68647f55b2859e50d900b6e5964d"
+    },
+    {
+      "action": "training-credit-burn",
+      "token": "DAT",
+      "hash": "0x4cd8244af8bfab5ae40184cf5353fece9c6d78eb5402a9c4d285e03211cbcb8d"
+    },
+    {
+      "action": "agent-deploy",
+      "token": "EMA",
+      "hash": "0xd2e0d84121d5b869af4ab6b23dcabf4fa8226194357e3c54db1e83bc05724779"
+    },
+    {
+      "action": "training-play",
+      "token": "EMA",
+      "hash": "0xb22ecb5fc0fee55cd4fd91f5a844e8ea6897ff57c5783ab2a4bcc52128d2022c"
+    },
+    {
+      "action": "training-credit-burn",
+      "token": "EMA",
+      "hash": "0x4f4706e2dd8474bc7c60bb2d04795a97e6db9f706236cf03f761351efe1c1048"
+    },
+    {
+      "action": "agent-deploy",
+      "token": "CAWELON",
+      "hash": "0x9d99e7d1a5af51d66b37cb0e768ec8a345a958a526e9c107aaef9c5d3bc0d3ba"
+    },
+    {
+      "action": "training-play",
+      "token": "CAWELON",
+      "hash": "0xe29a52fcf368d4668a0ee6ff3fa52e24568374129226366ae417765be50c079b"
+    },
+    {
+      "action": "training-credit-burn",
+      "token": "CAWELON",
+      "hash": "0xdac6a7bbee10fc15a9b11fb9700cd080cfef820bc8da80a8ad2932a1ff6d447c"
+    }
+  ]
+}
