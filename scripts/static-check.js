@@ -29,7 +29,7 @@ const rootReadme = fs.readFileSync(path.join(root, 'README.md'), 'utf8')
 const gameReadme = fs.readFileSync(path.join(root, 'game/README.md'), 'utf8')
 const lineage = fs.readFileSync(path.join(root, 'LINEAGE.md'), 'utf8')
 const gateway = fs.readFileSync(path.join(root, 'game/contracts/CawGameGateway.sol'), 'utf8')
-const workflow = fs.readFileSync(path.join(root, '.github/workflows/game-ci.yml'), 'utf8')
+const workflow = fs.readFileSync(path.join(root, '.github/workflows/game-ci.yml'), 'utf8').replace(/\r\n/g, '\n')
 
 for (const text of [rootReadme, gameReadme]) {
   if (!text.includes('Development / Unaudited / Not deployed to mainnet')) {

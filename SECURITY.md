@@ -24,3 +24,11 @@ vulnerability details.
 The operator and asset-adapter roles remain trusted components. Production use
 requires independent review, role-key operational controls, invariant testing
 and a deployment-specific threat model.
+
+## ThreeCore simulation
+
+The `threecore/` module accepts synthetic inputs and has no authorization or
+external receipt verification. It must never control real funds. Its hash-linked
+journal is not independently anchored and is not a durable multi-worker ledger.
+See `threecore/README.md` and `docs/THREECORE_RELEASE.md` for the explicit trust
+boundary, replay limitations and required production controls.

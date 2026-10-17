@@ -1,0 +1,11 @@
+{
+  "mode": "simulation",
+  "chainId": 31337,
+  "accountingAsset": "SIM_USDC",
+  "decimals": 6,
+  "agents": {
+    "DAT": { "maxPosition": "10000000", "maxExposure": "20000000", "reserve": "5000000", "buybackBps": 5000, "adapters": ["mock-market"] },
+    "EMA": { "maxPosition": "10000000", "maxExposure": "20000000", "reserve": "5000000", "buybackBps": 5000, "adapters": ["mock-market"] },
+    "CAWELON": { "maxPosition": "10000000", "maxExposure": "20000000", "reserve": "5000000", "buybackBps": 5000, "adapters": ["mock-market"] }
+  }
+}
