@@ -1,5 +1,18 @@
 # Training dApp validation — 2026-10-16
 
+## Follow-up — 2026-10-17
+
+- Failed factory replacement now clears the previous factory, agent, game and
+  credit bindings, resets displayed balances/challenge, and disables contract
+  actions. Invalid addresses and addresses without matching bytecode are tested
+  for all three agents; reattaching the valid factory restores the existing state.
+- Windows checks normalize workflow line endings and import the UI controller
+  module through a file URL, avoiding platform-specific check failures.
+- All three built pages were opened in the desktop in-app browser. Agent identity,
+  intended domain, training disclosure and initially disabled transaction controls
+  were verified, and screenshots saved. This is initial rendering QA only;
+  browser-wallet connection and signed browser gameplay remain unverified.
+
 ## Completed
 
 - Solidity 0.8.30 compilation and Solhint checks passed; largest deployed code is
@@ -24,8 +37,8 @@
 
 - No public testnet contract deployment or gameplay transaction has been sent.
 - No production domain has been updated.
-- No visual browser QA was completed: the environment lacked a browser binary
-  and browser installation failed. The controller check is not a screenshot test.
+- The original 2026-10-16 run lacked browser QA. Initial page rendering was
+  checked on 2026-10-17 as described above; wallet interaction is still outstanding.
 - No external game, AI model, real-token buyback or economic yield was verified.
 
 This evidence establishes local EVM and controller behavior, not public-testnet
